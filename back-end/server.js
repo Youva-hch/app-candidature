@@ -1,10 +1,10 @@
 import app from './app.js';
 import Env from './config/env.js';
 
-//PORT
-const PORT = Env.PORT || 3000;
+// Connexion à MongoDB
 
-//listen
+// Démarrage du serveur
+const PORT = Env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`listening at http://localhost:${PORT}`);
 });

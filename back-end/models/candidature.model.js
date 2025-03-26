@@ -9,8 +9,8 @@ const candidatureSchema = mongoose.Schema(
         },
         status: {
             type: String,
-            enum: ["en attente✋", "accepter✅", "refuser❌"],
-            default: "en attente✋",
+            enum: ["en attente", "accepter", "refuser"],
+            default: "en attente",
         },
 
     } , {
@@ -18,4 +18,4 @@ const candidatureSchema = mongoose.Schema(
     }
 )
 
-export default mongoose.model("Candidature", candidatureSchema);
+export default mongoose.model("candidature", candidatureSchema);
