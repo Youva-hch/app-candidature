@@ -24,7 +24,7 @@ const Home = () => {
   return (
     <div>
         Home
-        {post.map(item, () => (
+        {post.map(item => (
             <div key={item._id}>
                 <p>{item.entreprise}</p>
             </div>

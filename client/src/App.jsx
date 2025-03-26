@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import './App.css';
 
 
-import Layout from './component/layout';
+import Layout from './component/Layout'
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 
@@ -15,3 +15,5 @@ function App() {
    </Routes>
   );
 }
+
+export default App;
