@@ -7,9 +7,10 @@ const app = express();
 //IMPROT DES ROUTES
 
 //CONNEXION MONGO
-connectMongoDB(Env.URI_MONGO, Env.DB_NAME);
+connectMongoDB(Env.URI_MONGO_LOCAL, Env.DB_NAME);
 
 //MIDDLEWARES
+app.use(express.json());
 
 //PREFIX
 app.use('/api/candidatures', candidatureRouter);
