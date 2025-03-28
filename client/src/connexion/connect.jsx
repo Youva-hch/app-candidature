@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import './index.css';  
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const Connect = () => {
     const [email, setEmail] = useState('');
@@ -18,9 +19,6 @@ const Connect = () => {
         setPassword(e.target.value);
     };
 
-    const handleInscriptionClick = () => {
-        navigate('/Inscription');
-    };
 
     const handleSubmit = (e) => {
         e.preventDefault();  
@@ -48,7 +46,7 @@ const Connect = () => {
                 <div className="logo">SYF</div>
                 <nav>
                     <ul>
-                        <li><a href="*" onClick={handleInscriptionClick}>Sign in</a></li>
+                        <li><Link to="/inscription" >Sign in</Link></li>
                     </ul>
                 </nav>
             </header>
