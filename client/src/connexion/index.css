@@ -1,179 +1,116 @@
-@import url('https://fonts.googleapis.com/css2?family=Island+Moments&family=Roboto:wght@300&display=swap');
-
+/* Reset des styles de base */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
+    font-family: Arial, sans-serif;
 }
 
 body {
-    background: #fff;
-    color: #000;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
 }
 
 header {
-    background: #181818;
-    color: white;
+    width: 100%;
+    background-color: #333;
+    padding: 15px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 60px;
-    opacity: 0;
-    transform: translateY(-20px);
-    animation: fadeInDown 1s ease-out forwards;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .logo {
-    font-family: 'Island Moments', cursive;
     font-size: 28px;
-    transition: transform 0.3s ease-in-out;
+    font-weight: bold;
+    position: absolute;
+    left: 40px;
+    top: 10px; /* Abaisse le logo */
 }
 
-.logo:hover {
-    transform: scale(1.1);
+nav {
+    position: absolute;
+    right: 40px;
+    top: 20px; /* Ajuste l'alignement du menu */
 }
 
 nav ul {
     list-style: none;
     display: flex;
+    align-items: center;
 }
 
 nav ul li {
-    margin-left: 30px;
+    margin-left: 20px;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
     font-size: 18px;
-    position: relative;
-    transition: color 0.3s ease-in-out;
 }
 
-nav ul li a::after {
-    content: "";
-    width: 0;
-    height: 2px;
-    background: white;
-    position: absolute;
-    bottom: -3px;
-    left: 50%;
-    transform: translateX(-50%);
-    transition: width 0.3s ease-in-out;
-}
-
-nav ul li a:hover::after {
-    width: 100%;
-}
-
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
+nav ul li a:hover {
+    text-decoration: underline;
 }
 
 .form-container {
+    background-color: white;
+    padding: 60px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    width: 98%;
+    max-width: 1100px;
+    height: 98%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    animation: fadeInUp 1s ease-out;
 }
 
 h1 {
-    font-size: 56px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+    font-size: 22px;
 }
 
 .input-group {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    width: 80%;
 }
 
-.input-group input {
-    background: black;
-    color: white;
-    border: 2px solid transparent;
-    padding: 12px;
-    font-size: 18px;
-    width: 250px;
-    border-radius: 5px;
-    outline: none;
-    transition: border 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
-
-.input-group input::placeholder {
-    color: rgba(255, 255, 255, 0.6);
-}
-
-.input-group input:focus {
-    border: 2px solid white;
-    transform: scale(1.05);
-}
-
-p {
-    font-size: 20px;
-    color: #666;
-    margin: 10px 0;
-    margin-top: 20px;
-    opacity: 0;
-    animation: fadeIn 1s ease-out 1.2s forwards;
+input {
+    width: 125%;
+    padding: 17px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
 }
 
 button {
-    background: white;
+    background-color: #007bff;
+    color: white;
     border: none;
-    color: black;
-    padding: 12px 25px;
+    padding: 12px 15px;
     font-size: 18px;
-    font-weight: bold;
-    border-radius: 5px;
-    margin-top: 25px;
+    border-radius: 6px;
     cursor: pointer;
-    transition: background 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    width: 80%;
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    background: black;
-    color: white;
-    border: 2px solid white;
-    transform: scale(1.05);
+    background-color: #0056b3;
 }
 
-button:active {
-    transform: scale(0.95);
-}
-
-
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+p {
+    margin-top: 10px;
 }

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';  // Import de useNavigate pour la redirection
+import { useNavigate } from 'react-router-dom'; 
 import './index.css';  
+import axios from 'axios';
 
 const Connect = () => {
     const [email, setEmail] = useState('');
-    const [motDePasse, setMotDePasse] = useState('');
+    const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     
     const navigate = useNavigate();
@@ -14,29 +15,42 @@ const Connect = () => {
     };
 
     const handleMotDePasseChange = (e) => {
-        setMotDePasse(e.target.value);
+        setPassword(e.target.value);
+    };
+
+    const handleInscriptionClick = () => {
+        navigate('/Inscription');
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();  
-
-        if (!email || !motDePasse) {
+        
+        if (!email || !password) {
             setError('Tous les champs doivent être remplis.');
             return;
         }
-
         setError('');
+        
+        axios.post("http://localhost:3000/candidature/connexion", {email, password})
+        .then((result) => {
+            console.log(result)
+            if(result !== "Don't work") navigate('/AjoutCandidat');
+        })
+    
+        console.log('User connected', { email, password });
 
-
-        console.log('Utilisateur connecté', { email, motDePasse });
-
-        navigate('/AjoutCandidat');
+        
     };
 
     return (
         <div>
             <header>
-                <div className="logo">NCIA</div>
+                <div className="logo">SYF</div>
+                <nav>
+                    <ul>
+                        <li><a href="*" onClick={handleInscriptionClick}>Sign in</a></li>
+                    </ul>
+                </nav>
             </header>
 
             <main>
@@ -46,8 +60,8 @@ const Connect = () => {
                         <div className="input-group">
                             <input 
                                 type="email" 
-                                placeholder="Email*" 
-                                value={email} 
+                                placeholder="Mail*" 
+                                name='email'
                                 onChange={handleEmailChange} 
                                 required 
                             />
@@ -56,15 +70,15 @@ const Connect = () => {
                         <div className="input-group">
                             <input 
                                 type="password" 
-                                placeholder="Mot de passe*" 
-                                value={motDePasse} 
+                                placeholder="Password*" 
+                                name='password'
                                 onChange={handleMotDePasseChange} 
                                 required 
                             />
                         </div>
 
                         {error && <p style={{ color: 'red' }}>{error}</p>} 
-                        <button type="submit">Envoyer</button>
+                        <button type="submit">Sign up</button>
                     </form>
                 </div>
             </main>
